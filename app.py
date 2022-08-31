@@ -181,7 +181,6 @@ def getNameEmojiMessage():
 
 
 def getCarouselMessage(data):
-    data = {"title": title, "latitude": latitude, "longitude": longitude, "action": "get_near"}
     message = {
                 "type": "template",
                 "altText": "this is a image carousel template",
