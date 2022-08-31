@@ -181,7 +181,32 @@ def getNameEmojiMessage():
 
 
 def getCarouselMessage(data):
-    message = dict()
+    data = {"title": title, "latitude": latitude, "longitude": longitude, "action": "get_near"}
+    message = {
+                "type": "template",
+                "altText": "this is a image carousel template",
+                "template": {
+                    "type": "image_carousel",
+                    "columns": [
+                    {
+                        "imageUrl": f"{end_point}/static/taipei_101.jpeg",
+                        "action": {
+                        "type": "postback",
+                        "label": "是",
+                        "data": json.dumps(data)
+                        }
+                    },
+                    {
+                        "imageUrl": f"{end_point}/static/taipei_1.jpeg",
+                        "action": {
+                        "type": "postback",
+                        "label": "是",
+                        "data": json.dumps(data)
+                        }
+                    }
+                    ]
+                }
+            }
     return message
 
 
