@@ -186,7 +186,7 @@ def getCarouselMessage(data):
 
 
 def getLocationConfirmMessage(title, latitude, longitude):
-    message = dict()
+    message = {"type": "sticker", "packageId": "1070", "stickerId": "17839"}
     return message
 
 
