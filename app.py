@@ -8,6 +8,7 @@ import json
 import configparser
 import os
 from urllib import parse
+import datetime
 app = Flask(__name__, static_url_path='/static')
 UPLOAD_FOLDER = 'static'
 ALLOWED_EXTENSIONS = set(['pdf', 'png', 'jpg', 'jpeg', 'gif'])
@@ -245,9 +246,12 @@ def getTotalSentMessageCount():
 
 
 def getTodayCovid19Message():
-    date = ""
-    total_count = 0
-    count = 0
+    url = "https://covid-19.nchc.org.tw/api/covid19?CK=covid-19@nchc.org.tw&querydata=3001&limited=BGD"
+    r = requests.get(url, headers=HEADER)
+    covid = r.json()
+    date = datetime.date.today()
+    total_count = covid["a05"]
+    count = covid["a06"]
     return F"日期：{date}, 人數：{count}, 確診總人數：{total_count}"
 
 
