@@ -201,12 +201,19 @@ def getPlayStickerMessage():
 
 
 def getTaipei101LocationMessage():
-    message = dict()
+    message = {"type": "location", "title": "my location", 
+            "address": "No. 7, Section 5, Xinyi Road, Taipei City, Taiwan",
+            "latitude": 25.0336985,
+            "longitude": 121.5630369}
     return message
 
 
 def getMRTVideoMessage():
-    message = dict()
+    url = f"{end_point}/static/taipei_101_video.mp4"
+    message = {"type": "video",
+            "originalContentUrl": f"{url}",
+            "previewImageUrl": f"{url}",
+            "trackingId": "track-id"}
     return message
 
 
@@ -227,7 +234,9 @@ def getTaipei101ImageMessage(originalContentUrl=F"{end_point}/static/taipei_101.
 
 
 def getImageMessage(originalContentUrl):
-    message = dict()
+    message = {"type": "image", 
+            "originalContentUrl": f"{originalContentUrl}", 
+            "previewImageUrl": f"{originalContentUrl}"}
     return message
 
 
