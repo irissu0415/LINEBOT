@@ -248,10 +248,9 @@ def getTotalSentMessageCount():
 def getTodayCovid19Message():
     url = "https://covid-19.nchc.org.tw/api/covid19?CK=covid-19@nchc.org.tw&querydata=3001&limited=BGD"
     r = requests.get(url, headers=HEADER)
-    covid = r.json()
     date = datetime.date.today()
-    total_count = covid["a05"]
-    count = covid["a06"]
+    total_count = r["a05"]
+    count = r["a06"]
     return F"日期：{date}, 人數：{count}, 確診總人數：{total_count}"
 
 
