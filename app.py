@@ -238,10 +238,10 @@ def pushMessage(payload):
 
 def getTotalSentMessageCount():
     r = requests.get("https://api.line.me/v2/bot/message/quota/consumption", headers=HEADER)
-    # data = r.json()
-    # count = 
-    print(r.content)
-    return r.content
+    data = r.json()
+    count = data["totalUsage"]
+    print(count)
+    return count
 
 
 def getTodayCovid19Message():
