@@ -186,7 +186,7 @@ def getCarouselMessage(data):
 
 
 def getLocationConfirmMessage(title, latitude, longitude):
-    message = {"type": "sticker", "packageId": "1070", "stickerId": "17839"}
+    message = dict()
     return message
 
 
@@ -196,7 +196,7 @@ def getCallCarMessage(data):
 
 
 def getPlayStickerMessage():
-    message = dict()
+    message = {"type": "sticker", "packageId": "1070", "stickerId": "17839"}
     return message
 
 
